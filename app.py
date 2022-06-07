@@ -52,19 +52,19 @@ def display_value(continuous_var):
     grouped_mean=df.groupby(['Cabin Class', 'Embarked'])[continuous_var].mean()
     results=pd.DataFrame(grouped_mean)
     # Create a grouped bar chart
-    mydata1 = go.Bar(
+    mydata1 = go.PieChart(
         x=results.loc['first'].index,
         y=results.loc['first'][continuous_var],
         name='First Class',
         marker=dict(color=color1)
     )
-    mydata2 = go.Bar(
+    mydata2 = go.PieChart(
         x=results.loc['second'].index,
         y=results.loc['second'][continuous_var],
         name='Second Class',
         marker=dict(color=color2)
     )
-    mydata3 = go.Bar(
+    mydata3 = go.PieChart(
         x=results.loc['third'].index,
         y=results.loc['third'][continuous_var],
         name='Third Class',

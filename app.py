@@ -52,38 +52,49 @@ def display_value(continuous_var):
     grouped_mean=df.groupby(['Cabin Class', 'Embarked'])[continuous_var].mean()
     results=pd.DataFrame(grouped_mean)
 
-    classname = ['Cherbourg', 'Queenstown','Southampton']
+#     classname = ['Cherbourg', 'Queenstown','Southampton']
     
-    volume = [results.loc['Cherbourg'][continuous_var],
-              results.loc['Queenstown'][continuous_var],
-              results.loc['Southampton'][continuous_var]]
+#     volume = [results.loc['Cherbourg'][continuous_var],
+#               results.loc['Queenstown'][continuous_var],
+#               results.loc['Southampton'][continuous_var]]
 
-    mydata = go.Pie(labels=classname,values=volume)
-    data = [mydata]
-    # # Create a grouped bar chart
-    # mydata1 = go.Bar(
-    #     x=results.loc['first'].index,
-    #     y=results.loc['first'][continuous_var],
-    #     name='First Class',
-    #     marker=dict(color=color1)
-    # )
-    # mydata2 = go.Bar(
-    #     x=results.loc['second'].index,
-    #     y=results.loc['second'][continuous_var],
-    #     name='Second Class',
-    #     marker=dict(color=color2)
-    # )
-    # mydata3 = go.Bar(
-    #     x=results.loc['third'].index,
-    #     y=results.loc['third'][continuous_var],
-    #     name='Third Class',
-    #     marker=dict(color=color3)
-    # )
+#     mydata = go.Pie(labels=classname,values=volume)
+#     data = [mydata]
+#     # # Create a grouped bar chart
+#     # mydata1 = go.Bar(
+#     #     x=results.loc['first'].index,
+#     #     y=results.loc['first'][continuous_var],
+#     #     name='First Class',
+#     #     marker=dict(color=color1)
+#     # )
+#     # mydata2 = go.Bar(
+#     #     x=results.loc['second'].index,
+#     #     y=results.loc['second'][continuous_var],
+#     #     name='Second Class',
+#     #     marker=dict(color=color2)
+#     # )
+#     # mydata3 = go.Bar(
+#     #     x=results.loc['third'].index,
+#     #     y=results.loc['third'][continuous_var],
+#     #     name='Third Class',
+#     #     marker=dict(color=color3)
+#     # )
 
-    mylayout = go.Layout(
-        title='Grouped pie chart'
+#     mylayout = go.Layout(
+#         title='Grouped pie chart'
+#     )
+#     fig = go.Figure(data=data, layout=mylayout)
+
+ mylayout = go.Layout(
+        title='Grouped pie chart 2',
     )
-    fig = go.Figure(data=data, layout=mylayout)
+    classname1 = ['Cherbourg', 'Queenstown','Southampton']
+    volume = [results.loc['Cherbourg'][continuous_var],results.loc['Queenstown'][continuous_var],results.loc['Southampton'][continuous_var]]
+
+    data = [go.Pie(labels=classname1, 
+               values=volume
+              )]
+    fig = go.Figure(data,layout=mylayout)
     return fig
 
 

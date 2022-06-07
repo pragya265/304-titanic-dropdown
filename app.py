@@ -5,7 +5,7 @@ from dash import dcc
 from dash.dependencies import Input, Output, State
 import pandas as pd
 import plotly as py
-import plotly.graph_objs as go
+import plotly.express as go
 
 
 ###### Define your variables #####
@@ -53,22 +53,22 @@ def display_value(continuous_var):
     results=pd.DataFrame(grouped_mean)
     # Create a grouped bar chart
     mydata1 = go.Pie(
-        x=results.loc['first'].index,
-        y=results.loc['first'][continuous_var],
-        name='First Class',
-        marker=dict(color=color1)
+        values=results.loc['first'].index,
+        names=results.loc['first'][continuous_var],
+        title='First Class',
+        color_discrete_sequence=px.colors.sequential.RdBu
     )
     mydata2 = go.Pie(
-        x=results.loc['second'].index,
-        y=results.loc['second'][continuous_var],
-        name='Second Class',
-        marker=dict(color=color2)
+        values=results.loc['second'].index,
+        names=results.loc['second'][continuous_var],
+        title='Second Class',
+        color_discrete_sequence=px.colors.sequential.RdBu
     )
     mydata3 = go.Pie(
-        x=results.loc['third'].index,
-        y=results.loc['third'][continuous_var],
-        name='Third Class',
-        marker=dict(color=color3)
+        values=results.loc['third'].index,
+        names=results.loc['third'][continuous_var],
+        title='Third Class',
+        color_discrete_sequence=px.colors.sequential.RdBu
     )
 
     mylayout = go.Layout(

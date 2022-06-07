@@ -85,7 +85,7 @@ def display_value(continuous_var):
 #     )
 #     fig = go.Figure(data=data, layout=mylayout)
 
- mylayout = go.Layout(
+    mylayout = go.Layout(
         title='Grouped pie chart 2',
     )
     classname1 = ['Cherbourg', 'Queenstown','Southampton']
